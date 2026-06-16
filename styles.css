@@ -898,6 +898,7 @@ body {
 .dashboard.is-home .footer-inner {
   color: var(--text-muted);
 }
+<<<<<<< HEAD
 
 .db-status {
   display: flex;
@@ -928,3 +929,5 @@ body {
 [hidden] {
     display: none !important;
 }
+=======
+>>>>>>> c5a556aec2e841b83e52d4e5e1406ede74f13283
