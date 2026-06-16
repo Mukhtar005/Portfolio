@@ -37,15 +37,20 @@ app.use(
 );
 
 function requireAuth(req, res, next) {
-  // Аутентификация отключена
-  next();
+  if (req.session?.admin) return next();
+  res.status(401).json({ error: "Требуется авторизация" });
 }
 
 app.post("/api/auth/login", (req, res) => {
-  // Аутентификация отключена - всегда успешный вход
-  const { username = "Admin" } = req.body || {};
-  req.session.admin = username;
-  return res.json({ ok: true, username });
+  const { username, password } = req.body || {};
+  if (!username || !password) {
+    return res.status(400).json({ error: "Укажите логин и пароль" });
+  }
+  if (verifyAdmin(username, password)) {
+    req.session.admin = username;
+    return res.json({ ok: true, username });
+  }
+  res.status(401).json({ error: "Неверный логин или пароль" });
 });
 
 app.post("/api/auth/logout", (req, res) => {
@@ -53,8 +58,8 @@ app.post("/api/auth/logout", (req, res) => {
 });
 
 app.get("/api/auth/me", (req, res) => {
-  // Аутентификация отключена - всегда авторизован
-  return res.json({ ok: true, username: "Admin" });
+  if (req.session?.admin) return res.json({ ok: true, username: req.session.admin });
+  res.status(401).json({ error: "Не авторизован" });
 });
 
 app.get("/api/meta", (_req, res) => {
