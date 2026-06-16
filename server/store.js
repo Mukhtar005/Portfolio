@@ -186,7 +186,7 @@ function updatePortfolio(studentId, portfolio) {
 function verifyAdmin(username, password) {
   const admin = getAdmin();
   if (!admin || admin.username !== username) return false;
-  return bcrypt.compareSync(password, admin.passwordHash);
+  return admin.password === password;
 }
 
 function getStatus() {

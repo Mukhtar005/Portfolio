@@ -1,5 +1,4 @@
 const path = require("path");
-const bcrypt = require("bcryptjs");
 const { initStore, verifyAdmin } = require("./store");
 
 const args = process.argv.slice(2);
@@ -17,7 +16,7 @@ const fs = require("fs");
 const adminPath = path.join(__dirname, "..", "data", "admin.json");
 const data = {
   username,
-  passwordHash: bcrypt.hashSync(password, 10),
+  password,
 };
 
 const dir = path.dirname(adminPath);
@@ -27,6 +26,6 @@ fs.writeFileSync(adminPath, JSON.stringify(data, null, 2), "utf8");
 if (verifyAdmin(username, password)) {
   console.log("Администратор настроен успешно");
 } else {
-  console.error("Ошибка проверки учётных данных");
+  console.error("Ошибка проверки учетных данных");
   process.exit(1);
 }
