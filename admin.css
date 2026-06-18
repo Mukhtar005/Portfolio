@@ -1,0 +1,389 @@
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  padding: 24px;
+}
+
+.admin-login__card {
+  background: var(--surface);
+  padding: 40px;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.admin-login__card h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.admin-login__card p {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.admin-login__card label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.admin-login__card input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 15px;
+}
+
+.admin-login__card .btn-search {
+  width: 100%;
+  margin-top: 8px;
+  justify-content: center;
+}
+
+.admin-login__error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 12px;
+  min-height: 20px;
+}
+
+.admin-back {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.admin-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.admin-header {
+  background: var(--primary);
+  color: white;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-header span {
+  margin-left: 12px;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.admin-header__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.admin-layout {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 56px);
+}
+
+.admin-sidebar {
+  width: 300px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.admin-student-list {
+  margin-top: 12px;
+}
+
+.admin-student-item {
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 13px;
+  border: 1px solid transparent;
+  margin-bottom: 4px;
+}
+
+.admin-student-item:hover {
+  background: #f1f5f9;
+}
+
+.admin-student-item.active {
+  background: #eff6ff;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.admin-student-item small {
+  display: block;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.admin-placeholder {
+  color: var(--text-muted);
+  padding: 40px;
+  text-align: center;
+}
+
+.admin-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  max-width: 1100px;
+}
+
+.admin-panel h2 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.admin-panel__sub {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+.admin-tab {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  background: #f8fafc;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.admin-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.admin-field input,
+.admin-field select,
+.admin-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.admin-field textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.admin-field.full {
+  grid-column: 1 / -1;
+}
+
+.admin-grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.admin-grades-table th,
+.admin-grades-table td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+}
+
+.admin-grades-table th {
+  background: #f1f5f9;
+  font-weight: 700;
+}
+
+.admin-grades-table input,
+.admin-grades-table select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.admin-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+}
+
+.admin-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--primary);
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.admin-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .admin-layout { flex-direction: column; }
+  .admin-sidebar { width: 100%; max-height: 240px; }
+  .admin-form-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .admin-login__card {
+    padding: 24px;
+  }
+
+  .admin-header {
+    padding: 0 16px;
+    height: 52px;
+  }
+
+  .admin-header span {
+    display: none;
+  }
+
+  .admin-header__actions {
+    gap: 8px;
+  }
+
+  .admin-sidebar {
+    padding: 12px;
+    max-height: 200px;
+  }
+
+  .admin-main {
+    padding: 16px;
+  }
+
+  .admin-panel {
+    padding: 16px;
+  }
+
+  .admin-tabs {
+    flex-wrap: wrap;
+  }
+
+  .admin-tab {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .admin-actions {
+    flex-direction: column;
+  }
+
+  .admin-actions .btn-search,
+  .admin-actions .btn-reset {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .admin-toast {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-login__card h1 {
+    font-size: 20px;
+  }
+
+  .admin-grades-table {
+    font-size: 11px;
+  }
+
+  .admin-grades-table th,
+  .admin-grades-table td {
+    padding: 6px;
+  }
+
+  .student-list-container .list-header,
+  .student-list-container .student-row {
+    grid-template-columns: 40px 1fr 80px;
+  }
+
+  .student-list-container .list-header > *:nth-child(4),
+  .student-list-container .list-header > *:nth-child(5),
+  .student-list-container .list-header > *:nth-child(6),
+  .student-list-container .student-row > *:nth-child(4),
+  .student-list-container .student-row > *:nth-child(5),
+  .student-list-container .student-row > *:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .student-list-container .list-header,
+  .student-list-container .student-row {
+    grid-template-columns: 40px 1fr 80px 80px;
+  }
+
+  .student-list-container .list-header > *:nth-child(5),
+  .student-list-container .list-header > *:nth-child(6),
+  .student-list-container .student-row > *:nth-child(5),
+  .student-list-container .student-row > *:nth-child(6) {
+    display: none;
+  }
+}
+

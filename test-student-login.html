@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест входа для студентов</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        input { padding: 10px; width: 100%; margin: 10px 0; }
+        button { padding: 10px 20px; background: #1e40af; color: white; border: none; cursor: pointer; }
+        #log { background: #f5f5f5; padding: 10px; margin-top: 20px; border-radius: 5px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>Тест логина для студентов</h1>
+    <label>Логин (фамилия): <input id="user" value="Гамзатов"></label><br>
+    <label>Пароль (имя): <input id="pass" type="text" value="Мухтар"></label><br>
+    <button onclick="testLogin()">Войти</button>
+    <div id="log"></div>
+
+    <script>
+        function log(msg) {
+            document.getElementById('log').innerHTML += new Date().toLocaleTimeString() + ': ' + msg + '<br>';
+        }
+
+        async function testLogin() {
+            try {
+                log('Отправляем запрос...');
+                const res = await fetch('/api/auth/student-login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({
+                        login: document.getElementById('user').value.trim(),
+                        password: document.getElementById('pass').value.trim()
+                    })
+                });
+                log('Ответ получен, статус: ' + res.status);
+                const data = await res.json();
+                log('Данные ответа: ' + JSON.stringify(data, null, 2));
+                if (res.ok) {
+                    log('✅ Вход успешен!');
+                } else {
+                    log('❌ Ошибка: ' + (data.error || 'Неизвестная ошибка'));
+                }
+            } catch (e) {
+                log('❌ Ошибка сети: ' + e.message);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server/index.js",
+    "setup-admin": "node server/setup-admin.js",
+    "init-data": "node -e \"require('./server/store').initStore()\""
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "pptxgenjs": "^4.0.1"
+  }
+}
